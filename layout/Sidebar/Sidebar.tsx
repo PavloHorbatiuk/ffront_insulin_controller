@@ -7,10 +7,7 @@ export const Sidebar = ({ ...props }: SideBarProps) => {
 	return (
 		<div {...props} >
 			<Link href={'/form'} className={styles.warper}>
-
 				Add person
-
-
 			</Link>
 		</div>
 	)

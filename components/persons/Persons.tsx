@@ -13,11 +13,11 @@ export const PersonsComponents = ({ persons }: PersonsProps) => {
 	const [items, setItems] = useState<Person[]>(persons);
 
 	const handleAddItem = (newItem: PickFormProps) => {
-		// Add your logic for adding an item here
+
 	};
 
 	const handleDeleteItem = (rank: number | string) => {
-		// Add your logic for deleting an item here
+
 	};
 
 	const handleItemReorder = (result: any) => {
