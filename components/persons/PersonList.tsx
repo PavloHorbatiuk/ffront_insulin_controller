@@ -5,6 +5,7 @@ import { List, ListItem, ListItemText } from '@mui/material';
 import { Person } from '../../interfaces/interface';
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 interface ItemListProps {
 	persons: Person[];
@@ -30,8 +31,11 @@ const ItemList: React.FC<ItemListProps> = ({ persons, onItemDelete, onItemReorde
 											primary={`${person.rank}. ${person.name}`}
 											secondary={`Email: ${person.email}`}
 										/>
+										<a style={{ cursor: "pointer" }} >
+											<EditIcon />
+										</a>
 										<a style={{ cursor: "pointer" }} onClick={() => onItemDelete(person.rank)}>
-											<DeleteIcon></DeleteIcon>
+											<DeleteIcon />
 										</a>
 									</ListItem>
 								)}
