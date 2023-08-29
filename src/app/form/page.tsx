@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Button } from '../../../components/ui-components/Button/Button';
 import axios from 'axios';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Link from 'next/link';
 
 
 interface FormValues {
@@ -84,10 +86,14 @@ const FormPerson: React.FC = () => {
 					error={formik.touched.rank && Boolean(formik.errors.rank)}
 					helperText={formik.touched.rank && formik.errors.rank}
 				/>
-
-				<Button type="submit" appearance="primary">
-					Submit
-				</Button>
+				<div className="flex justify-between">
+					<Button type="submit" appearance="primary">
+						Submit
+					</Button>
+					<Link href="/">
+						<ArrowBackIcon />
+					</Link>
+				</div>
 			</form>
 		</Container>
 	);

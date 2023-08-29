@@ -17,7 +17,7 @@ export const PersonsComponents = ({ persons }: PersonsProps) => {
 	};
 
 	const handleDeleteItem = (rank: number | string) => {
-
+		console.log("delete did")
 	};
 
 	const handleItemReorder = (result: any) => {

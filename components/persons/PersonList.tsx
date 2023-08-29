@@ -30,7 +30,7 @@ const ItemList: React.FC<ItemListProps> = ({ persons, onItemDelete, onItemReorde
 											primary={`${person.rank}. ${person.name}`}
 											secondary={`Email: ${person.email}`}
 										/>
-										<a onClick={() => onItemDelete(person.rank)}>
+										<a style={{ cursor: "pointer" }} onClick={() => onItemDelete(person.rank)}>
 											<DeleteIcon></DeleteIcon>
 										</a>
 									</ListItem>
