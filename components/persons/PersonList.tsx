@@ -6,6 +6,7 @@ import { Person } from '../../interfaces/interface';
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Link from 'next/link';
 
 interface ItemListProps {
 	persons: Person[];
@@ -14,13 +15,14 @@ interface ItemListProps {
 }
 
 const ItemList: React.FC<ItemListProps> = ({ persons, onItemDelete, onItemReorder }) => {
+
 	return (
 		<DragDropContext onDragEnd={onItemReorder}>
 			<Droppable droppableId="person-list">
 				{(provided) => (
 					<List {...provided.droppableProps} ref={provided.innerRef}>
 						{persons.map((person, index) => (
-							<Draggable key={person.rank.toString()} draggableId={person.rank.toString()} index={index}>
+							<Draggable key={person.id.toString()} draggableId={person.rank.toString()} index={index}>
 								{(provided) => (
 									<ListItem
 										ref={provided.innerRef}
@@ -31,10 +33,10 @@ const ItemList: React.FC<ItemListProps> = ({ persons, onItemDelete, onItemReorde
 											primary={`${person.rank}. ${person.name}`}
 											secondary={`Email: ${person.email}`}
 										/>
-										<a style={{ cursor: "pointer" }} >
+										<Link href="/form/edit" style={{ cursor: "pointer" }}>
 											<EditIcon />
-										</a>
-										<a style={{ cursor: "pointer" }} onClick={() => onItemDelete(person.rank)}>
+										</Link>
+										<a onClick={() => onItemDelete(person.rank)}>
 											<DeleteIcon />
 										</a>
 									</ListItem>

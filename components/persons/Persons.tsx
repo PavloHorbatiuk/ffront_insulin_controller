@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Person } from '../../interfaces/interface';
 import ItemList from './PersonList';
 import { PickFormProps } from './ItemForm.props';
+import axios from 'axios';
 
 
 interface PersonsProps {
@@ -16,8 +17,15 @@ export const PersonsComponents = ({ persons }: PersonsProps) => {
 
 	};
 
-	const handleDeleteItem = (rank: number | string) => {
-		console.log("delete did")
+	const handleDeleteItem = async (id: number | string) => {
+		const url = process.env.NEXT_PUBLIC_DOMAIN + '/persons';
+		try {
+			await axios.delete(url + `/${id}`);
+			const updatedItems = items.filter((item) => item.id !== id);
+			setItems(updatedItems)
+		} catch (error) {
+			console.error('Error deleting person:', error);
+		}
 	};
 
 	const handleItemReorder = (result: any) => {
